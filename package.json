@@ -11,7 +11,10 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/catalinbozianu/n8n-nodes-youtube-transcript#readme",
-  "author": "Catalin Bozianu <catalin.bozianu@gmail.com>",
+  "author": {
+    "name": "Catalin Bozianu",
+    "email": "catalin.bozianu@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/catalinbozianu/n8n-nodes-youtube-transcript.git"
