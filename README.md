@@ -11,7 +11,8 @@ This version uses Puppeteer with the StealthPlugin. Puppeteer must be installed 
 [Operations](#operations)  
 [Contributions](#contributions)  
 [Resources](#resources)  
-[License](#license)
+[License](#license)  
+[Debugging Features](#debugging-features)
 
 ## Prerequisites
 
@@ -24,7 +25,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ### Installing Puppeteer
 
-To use this node, Puppeteer must be installed and configured on your n8n instance. Here’s a basic installation step:
+To use this node, Puppeteer must be installed and configured on your n8n instance. Here's a basic installation step:
 
 1. **Install Puppeteer**:
 	 ```bash
@@ -60,7 +61,7 @@ For more detailed instructions and troubleshooting, refer to the official [Puppe
 
 A sample `Dockerfile` is provided in the `examples/docker` directory. This Dockerfile sets up a container with **Puppeteer** and **Chromium** pre-installed, allowing you to run **n8n-nodes-youtube-transcript and other nodes that require Puppeteer**.
 
-**Note**: The `n8n-nodes-youtube-transcript` plugin itself is not installed within the Docker container by default; you’ll need to install it manually.
+**Note**: The `n8n-nodes-youtube-transcript` plugin itself is not installed within the Docker container by default; you'll need to install it manually.
 
 #### Building and running the Docker Image
 
@@ -124,3 +125,48 @@ Please ensure that your code follows the style guide and includes tests if appli
 ## License
 
 This project is licensed under the [n8n fair-code license](https://docs.n8n.io/reference/license/).
+
+## Debugging Features
+
+### Debugging in n8n
+
+When using this node in n8n, you can enable various debugging options through the node's options:
+
+1. Enable **Debug Mode** in the node settings
+2. Then you can choose from additional options:
+   - **Slow Motion**: Slows down operations for better visibility
+   - **Open DevTools**: Opens Chrome DevTools automatically
+   - **Wait After Transcript**: Keeps the browser open for inspection
+   - **Use Debugger Statement**: Pauses execution at key points
+
+### Standalone Debugging
+
+For development and troubleshooting, this node comes with a standalone testing script:
+
+```bash
+# Basic run with default Rick Roll video
+npm run test-run
+
+# Test with a specific video
+npm run test-run -- https://www.youtube.com/watch?v=YOUR_VIDEO_ID
+
+# Debug with Chrome DevTools
+npm run debug-dev
+
+# Debug in slow motion with DevTools
+npm run debug-slow
+
+# Full debugging with all options
+npm run debug-all
+
+# Debug with Node Inspector
+npm run debug-inspect
+```
+
+Command-line debugging options:
+- `--slow-mo`: Slow down browser operations
+- `--devtools`: Open Chrome DevTools
+- `--wait-after`: Keep browser open for inspection
+- `--debugger`: Add debugger breakpoint
+- `--save`: Save transcript to a file
+- `--no-headless`: Force non-headless mode
