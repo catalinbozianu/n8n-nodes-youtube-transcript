@@ -10,24 +10,20 @@
     "youtube-transcript"
   ],
   "license": "MIT",
-  "homepage": "",
-  "author": {
-    "name": "Catalin Bozianu",
-    "email": "catalin.bozianu@gmail.com"
-  },
+  "homepage": "https://github.com/catalinbozianu/n8n-nodes-youtube-transcript#readme",
+  "author": "Catalin Bozianu <catalin.bozianu@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/catalinbozianu/n8n-nodes-youtube-transcript.git"
+    "url": "git+https://github.com/catalinbozianu/n8n-nodes-youtube-transcript.git"
   },
   "main": "index.js",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "tsc && gulp build:icons",
     "dev": "tsc --watch",
     "format": "prettier nodes --write",
     "lint": "eslint nodes package.json",
     "lintfix": "eslint nodes package.json --fix",
-    "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes package.json",
+    "prepublishOnly": "npm run build && npm run lint -- -c .eslintrc.prepublish.js nodes package.json",
     "test-run": "ts-node standalone-test.ts",
     "debug": "node --inspect-brk -r ts-node/register standalone-test.ts",
     "debug-dev": "ts-node standalone-test.ts --devtools --wait-after",
@@ -62,5 +58,14 @@
     "puppeteer": "^23.6.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "bugs": {
+    "url": "https://github.com/catalinbozianu/n8n-nodes-youtube-transcript/issues"
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
